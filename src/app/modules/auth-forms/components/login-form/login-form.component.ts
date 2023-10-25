@@ -21,6 +21,10 @@ export class LoginFormComponent implements OnInit {
     });
   }
 
-  
+  submitForm = () => {
+    if (this.loginForm?.valid) {
+      this.authService.login();
+    }
+  }
 
 }
