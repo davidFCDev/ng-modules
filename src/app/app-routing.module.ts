@@ -8,7 +8,7 @@ const routes: Routes = [
     pathMatch: 'full',
   },
   {
-    path:'auth',
+    path: 'auth',
     loadChildren: () =>
       import('./modules/pages/auth/auth.module').then((m) => m.AuthModule),
   },
@@ -22,6 +22,14 @@ const routes: Routes = [
     loadChildren: () =>
       import('./modules/pages/profile/profile.module').then(
         (m) => m.ProfileModule
+      ),
+  },
+  // Siempre el 404 va en el modulo principal
+  {
+    path: '**',
+    loadChildren: () =>
+      import('./modules/pages/not-found/not-found.module').then(
+        (m) => m.NotFoundModule
       ),
   },
 ];

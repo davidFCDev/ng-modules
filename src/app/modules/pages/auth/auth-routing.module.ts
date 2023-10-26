@@ -16,7 +16,7 @@ const routes: Routes = [
   {
     path: 'register',
     component: RegisterPageComponent,
-  }
+  },
 ];
 
 @NgModule({
