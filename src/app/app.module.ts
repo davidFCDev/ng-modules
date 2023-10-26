@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthFormsModule } from './modules/auth-forms/auth-forms.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,8 @@ import { AuthFormsModule } from './modules/auth-forms/auth-forms.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AuthFormsModule
+    AuthFormsModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
