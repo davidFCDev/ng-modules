@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { OptInPreloadingStrategy } from './preloading-strategies/opt-in-preloading-strategy';
 import { NetworkAwarePreloadStrategy } from './preloading-strategies/network-aware-preloading-strategy';
+import { OnDemandPreloadingStrategy } from './preloading-strategies/on-demand-preloading-strategy';
 
 const routes: Routes = [
   {
@@ -48,7 +49,9 @@ const routes: Routes = [
     // * 3 - Estrategia personalizada de precarga por opciones en rutas
     // preloadingStrategy: OptInPreloadingStrategy
     // * 4 - Estrategia personalizada de precarga por conexión
-    preloadingStrategy: NetworkAwarePreloadStrategy
+    // preloadingStrategy: NetworkAwarePreloadStrategy
+    // * 5 - Estrategia personalizada de precarga bajo demanda
+    preloadingStrategy: OnDemandPreloadingStrategy
   })],
   exports: [RouterModule],
 })
