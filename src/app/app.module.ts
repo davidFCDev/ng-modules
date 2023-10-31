@@ -12,6 +12,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { OptInPreloadingStrategy } from './preloading-strategies/opt-in-preloading-strategy';
+import { NetworkAwarePreloadStrategy } from './preloading-strategies/network-aware-preloading-strategy';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { OptInPreloadingStrategy } from './preloading-strategies/opt-in-preloadi
     // ? IMPORTANTE
     // Disponemos de las estrategias de precarga
     // para poder ser empleadas en el modulo de enrutado
-    OptInPreloadingStrategy
+    OptInPreloadingStrategy,
+    NetworkAwarePreloadStrategy
   ],
   bootstrap: [AppComponent]
 })

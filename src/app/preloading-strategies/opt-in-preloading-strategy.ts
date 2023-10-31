@@ -9,6 +9,7 @@ export class OptInPreloadingStrategy implements PreloadingStrategy {
    * @param load La función que carga el módulo
    * @returns ejecuta el callback de carga del módulo o devuelve un Observable vacío
    */
+
   preload(route: Route, load: () => Observable<any>): Observable<any> {
     return route.data && route.data['preload'] ? load() : of(null);
   }
