@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
+import { PreloadingService } from 'src/app/services/preloading.service';
 
 @Component({
   selector: 'app-nav',
@@ -16,4 +17,14 @@ export class NavComponent {
       map(result => result.matches),
       shareReplay()
     );
+
+    constructor(private preloadingService: PreloadingService) {}
+
+    cargarModulo(route: string) {
+      this.preloadingService.comenzarPrecarga(route);
+    }
+
+    cargarTodosLosModulos() {
+      this.preloadingService.comenzarPrecarga('*');
+    }
 }

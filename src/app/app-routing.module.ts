@@ -14,6 +14,9 @@ const routes: Routes = [
     path: 'auth',
     loadChildren: () =>
       import('./modules/pages/auth/auth.module').then((m) => m.AuthModule),
+    data: {
+      preload: true,
+    },
   },
   {
     path: 'home',
@@ -26,9 +29,9 @@ const routes: Routes = [
       import('./modules/pages/profile/profile.module').then(
         (m) => m.ProfileModule
       ),
-      data: {
-        preload: true
-      }
+    data: {
+      preload: true,
+    },
   },
   // Siempre el 404 va en el modulo principal
   {
@@ -41,18 +44,20 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {
-    // * 1 - Precargar todos los módulos de las rutas
-    // preloadingStrategy: PreloadAllModules
-    // * 2 - No precargar ningún módulo de las rutas
-    // preloadingStrategy: NoPreloading
-    // * 3 - Estrategia personalizada de precarga por opciones en rutas
-    // preloadingStrategy: OptInPreloadingStrategy
-    // * 4 - Estrategia personalizada de precarga por conexión
-    // preloadingStrategy: NetworkAwarePreloadStrategy
-    // * 5 - Estrategia personalizada de precarga bajo demanda
-    preloadingStrategy: OnDemandPreloadingStrategy
-  })],
+  imports: [
+    RouterModule.forRoot(routes, {
+      // * 1 - Precargar todos los módulos de las rutas
+      // preloadingStrategy: PreloadAllModules
+      // * 2 - No precargar ningún módulo de las rutas
+      // preloadingStrategy: NoPreloading
+      // * 3 - Estrategia personalizada de precarga por opciones en rutas
+      // preloadingStrategy: OptInPreloadingStrategy
+      // * 4 - Estrategia personalizada de precarga por conexión
+      // preloadingStrategy: NetworkAwarePreloadStrategy
+      // * 5 - Estrategia personalizada de precarga bajo demanda
+      preloadingStrategy: OnDemandPreloadingStrategy,
+    }),
+  ],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
