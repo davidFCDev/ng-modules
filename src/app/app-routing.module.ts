@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { OptInPreloadingStrategy } from './preloading-strategies/opt-in-preloading-strategy';
 
 const routes: Routes = [
   {
@@ -23,6 +24,9 @@ const routes: Routes = [
       import('./modules/pages/profile/profile.module').then(
         (m) => m.ProfileModule
       ),
+      data: {
+        preload: true
+      }
   },
   // Siempre el 404 va en el modulo principal
   {
@@ -37,7 +41,11 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(routes, {
     // * 1 - Precargar todos los módulos de las rutas
-    preloadingStrategy: PreloadAllModules
+    // preloadingStrategy: PreloadAllModules
+    // * 2 - No precargar ningún módulo de las rutas
+    // preloadingStrategy: NoPreloading
+    // * 3 - Estrategia personalizada de precarga por opciones en rutas
+    preloadingStrategy: OptInPreloadingStrategy
   })],
   exports: [RouterModule],
 })
