@@ -11,6 +11,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import { OptInPreloadingStrategy } from './preloading-strategies/opt-in-preloading-strategy';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,12 @@ import { MatListModule } from '@angular/material/list';
     MatIconModule,
     MatListModule
   ],
-  providers: [],
+  providers: [
+    // ? IMPORTANTE
+    // Disponemos de las estrategias de precarga
+    // para poder ser empleadas en el modulo de enrutado
+    OptInPreloadingStrategy
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
